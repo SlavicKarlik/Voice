@@ -28,12 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnEnable = new System.Windows.Forms.Button();
+            this.btnDisable = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.SuspendLayout();
+            // 
+            // btnEnable
+            // 
+            this.btnEnable.Location = new System.Drawing.Point(12, 320);
+            this.btnEnable.Name = "btnEnable";
+            this.btnEnable.Size = new System.Drawing.Size(158, 23);
+            this.btnEnable.TabIndex = 0;
+            this.btnEnable.Text = "Enable Voice Contol";
+            this.btnEnable.UseVisualStyleBackColor = true;
+            this.btnEnable.Click += new System.EventHandler(this.btnEnable_Click);
+            // 
+            // btnDisable
+            // 
+            this.btnDisable.Enabled = false;
+            this.btnDisable.Location = new System.Drawing.Point(189, 320);
+            this.btnDisable.Name = "btnDisable";
+            this.btnDisable.Size = new System.Drawing.Size(133, 23);
+            this.btnDisable.TabIndex = 1;
+            this.btnDisable.Text = "Disable Voice Control";
+            this.btnDisable.UseVisualStyleBackColor = true;
+            this.btnDisable.Click += new System.EventHandler(this.btnDisable_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(321, 302);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "Log:";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(334, 372);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.btnDisable);
+            this.Controls.Add(this.btnEnable);
+            this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Speach Recognition";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnEnable;
+        private System.Windows.Forms.Button btnDisable;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
