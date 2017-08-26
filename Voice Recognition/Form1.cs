@@ -26,8 +26,8 @@ namespace Voice_Recognition
 
         private void btnEnable_Click(object sender, EventArgs e)
         {
-            synth.SelectVoice("Microsoft Helena Desktop");
-
+           //synth.SelectVoice("Microsoft Helena Desktop");
+           
             recEngine.RecognizeAsync(RecognizeMode.Multiple);
             btnDisable.Enabled = true;
             btnEnable.Enabled = false;
@@ -43,7 +43,7 @@ namespace Voice_Recognition
             richTextBox1.Text += ("\nZacznij się śmiać. \n");
 
             Choices command = new Choices();
-            command.Add(new string[] { "ha", "ha ha", "ha ha ha", "ha ha ha ha", "exit"});
+            command.Add(new string[] {"time", "date", "ha", "ha ha", "ha ha ha", "ha ha ha ha", "exit"});
             GrammarBuilder gBuilder = new GrammarBuilder();
             gBuilder.Append(command);
             Grammar grammar = new Grammar(gBuilder);
@@ -100,7 +100,14 @@ namespace Voice_Recognition
                 case "ha ha ha ha":
                     richTextBox1.Text += ("\nZaśmiałaś/eś się cztery razy.");
                     break;
-
+                case "time":
+                    richTextBox1.Text += (DateTime.Now.ToString("h:mm:ss tt"));
+                    synth.Speak(DateTime.Now.ToString("h:mm:ss tt"));
+                    break;
+                case "date":
+                    richTextBox1.Text += (DateTime.Today.ToString("D"));
+                    synth.Speak(DateTime.Today.ToString("D"));
+                    break;
                 case "exit":
                     richTextBox1.Text += "\nWychodzę.";
                     Thread.Sleep(3000);
