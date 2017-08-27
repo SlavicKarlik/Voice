@@ -43,7 +43,7 @@ namespace Voice_Recognition
             richTextBox1.Text += ("\nZacznij się śmiać. \n");
 
             Choices command = new Choices();
-            command.Add(new string[] {"time", "date", "ha", "ha ha", "ha ha ha", "ha ha ha ha", "exit"});
+            command.Add(new string[] {"time","create note" ,"date", "ha", "ha ha", "ha ha ha", "ha ha ha ha", "exit"});
             GrammarBuilder gBuilder = new GrammarBuilder();
             gBuilder.Append(command);
             Grammar grammar = new Grammar(gBuilder);
@@ -108,6 +108,9 @@ namespace Voice_Recognition
                     richTextBox1.Text += (DateTime.Today.ToString("D"));
                     synth.Speak(DateTime.Today.ToString("D"));
                     break;
+                case "create note":
+                    createNote();
+                    break;
                 case "exit":
                     richTextBox1.Text += "\nWychodzę.";
                     Thread.Sleep(3000);
@@ -125,6 +128,13 @@ namespace Voice_Recognition
             recEngine.RecognizeAsyncStop();
             btnEnable.Enabled = true;
             btnDisable.Enabled = false;
+        }
+
+        //TODO: Uzupełnić
+        //Utwórz notatkę
+        void createNote()
+        {
+            //Notepad new13
         }
     }
 }
